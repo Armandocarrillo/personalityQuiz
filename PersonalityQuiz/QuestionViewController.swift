@@ -9,22 +9,92 @@
 import UIKit
 
 class QuestionViewController: UIViewController {
-
+    
+    @IBOutlet weak var questionLabel: UILabel!
+    @IBOutlet weak var multipleStackView: UIStackView!
+    
+    @IBOutlet weak var multiLabel: UILabel!
+    @IBOutlet weak var multiLabel2: UILabel!
+    @IBOutlet weak var multiLabel3: UILabel!
+    @IBOutlet weak var multiLabel4: UILabel!
+    
+    @IBOutlet weak var multiSwitch1: UISwitch!
+    @IBOutlet weak var multiSwitch2: UISwitch!
+    @IBOutlet weak var multiSwitch3: UISwitch!
+    @IBOutlet weak var multiSwitch4: UISwitch!
+    
+    
+    @IBOutlet weak var questionProgressView: UIProgressView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        updateUI()
+       
+    }
+    var answerChosen : [Answer] = []
+    var questionIndex = Int.init()
+    var question: [Question] = [
+        Question(text: "Wich activities do you enjoy ?", type: .multiple, answers: [
+            Answer(text: "Swiming", type: .turtle),
+            Answer(text: "Sleeping", type: .cat),
+            Answer(text: "Cudding", type: .rabbit),
+            Answer(text: "Eating", type: .dog)
+        ])
+    
+    ]
+    func updateUI(){
+        multipleStackView.isHidden = true
+        let currentQuestion = question[questionIndex]
+        let currentAnswer = currentQuestion.answers
+        let totalProgress = Float(questionIndex) / Float(question.count)
+        navigationItem.title = "Question #\(questionIndex+1)"
+        questionLabel.text = currentQuestion.text
+        questionProgressView.setProgress(totalProgress, animated: true)
+        
+        switch currentQuestion.type {
+        case .multiple:
+           // multipleStackView.isHidden = false
+            updateMultipleStack(using: currentAnswer)
+        case .single:
+            multipleStackView.isHidden = false
+        
+        case .ranged:
+            multipleStackView.isHidden = false
+        }
+    }
+    func updateMultipleStack(using answers : [Answer]){
+        multipleStackView.isHidden = false
+        multiLabel.text = answers[0].text
+        multiLabel2.text = answers[1].text
+        multiLabel3.text = answers[2].text
+        multiLabel4.text = answers[3].text
+        
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    
+    @IBAction func multipleAnswerButtonPressed() {
+        let currentAnswers = question[questionIndex].answers
+        if multiSwitch1.isOn{
+            answerChosen.append(currentAnswers[0])
+        }
+        if multiSwitch2.isOn{
+            answerChosen.append(currentAnswers[1])
+        }
+        if multiSwitch3.isOn{
+            answerChosen.append(currentAnswers[2])
+        }
+        if multiSwitch3.isOn{
+            answerChosen.append(currentAnswers[3])
+        }
+        nextQuestion()
     }
-    */
-
+    func nextQuestion (){
+        questionIndex += 1
+        if questionIndex < question.count{
+            updateUI()
+        } else {
+            performSegue(withIdentifier: "ResultsSegue", sender: nil)
+        }
+    }
+    
 }

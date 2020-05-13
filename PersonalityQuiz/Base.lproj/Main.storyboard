@@ -52,7 +52,7 @@
                                         <rect key="frame" x="0.0" y="49.5" width="318.5" height="30"/>
                                         <state key="normal" title="Begin Personality Quiz"/>
                                         <connections>
-                                            <segue destination="xbH-RC-HeE" kind="show" id="YnM-SC-OPm"/>
+                                            <segue destination="ml2-pW-P2S" kind="show" id="m20-Ov-7nm"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -162,6 +162,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="58D-hu-wFb">
                                 <rect key="frame" x="0.0" y="531" width="414" height="30"/>
                                 <state key="normal" title="Submit Answer"/>
+                                <connections>
+                                    <action selector="multipleAnswerButtonPressed" destination="RQd-h0-Pm4" eventType="touchUpInside" id="ddt-fj-5kv"/>
+                                </connections>
                             </button>
                             <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Hqx-c9-GDc">
                                 <rect key="frame" x="20" y="786" width="374" height="2"/>
@@ -186,12 +189,23 @@
                     </view>
                     <navigationItem key="navigationItem" id="J37-zo-bhM"/>
                     <connections>
-                        <segue destination="t8B-qW-Lqk" kind="show" identifier="ResultsSegue" id="C3U-89-JwX"/>
+                        <outlet property="multiLabel" destination="o3m-Qf-C0K" id="Ngj-Z7-mBa"/>
+                        <outlet property="multiLabel2" destination="28j-9t-cxs" id="T86-gX-KOe"/>
+                        <outlet property="multiLabel3" destination="Q4b-bT-IvX" id="xpb-7s-K1J"/>
+                        <outlet property="multiLabel4" destination="5ba-Tj-u1L" id="xVC-ks-EPj"/>
+                        <outlet property="multiSwitch1" destination="NX9-Wq-Tv9" id="BMM-X2-a1M"/>
+                        <outlet property="multiSwitch2" destination="lNO-zY-aaR" id="iAe-sj-Brq"/>
+                        <outlet property="multiSwitch3" destination="ozK-C0-rv0" id="iQl-NE-kXA"/>
+                        <outlet property="multiSwitch4" destination="lKI-uf-Fzv" id="XUu-sr-ler"/>
+                        <outlet property="multipleStackView" destination="kzG-SP-JNc" id="qyy-Zg-TWX"/>
+                        <outlet property="questionLabel" destination="kKb-d2-pQF" id="pXK-8I-LRP"/>
+                        <outlet property="questionProgressView" destination="Hqx-c9-GDc" id="uNd-rR-u7M"/>
+                        <segue destination="t8B-qW-Lqk" kind="show" identifier="ResultsSegue" id="ddc-VF-jRm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jjg-sO-iBD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1079.7101449275362" y="147.99107142857142"/>
+            <point key="canvasLocation" x="1989.8550724637682" y="147.99107142857142"/>
         </scene>
         <!--Results-->
         <scene sceneID="bBA-jz-l08">
@@ -234,26 +248,26 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Loz-Nu-Zb8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1850.7246376811595" y="143.97321428571428"/>
+            <point key="canvasLocation" x="2760.8695652173915" y="143.97321428571428"/>
         </scene>
         <!--Navigation Controller-->
-        <scene sceneID="UzM-rK-zWV">
+        <scene sceneID="eKi-jU-NPD">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="xbH-RC-HeE" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ml2-pW-P2S" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" id="e6d-ab-sNn"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="7Se-YN-FZE">
+                    <navigationItem key="navigationItem" id="yHx-qC-3he"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="AZy-jQ-cni">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="RQd-h0-Pm4" kind="relationship" relationship="rootViewController" id="1Sb-g0-fHi"/>
+                        <segue destination="RQd-h0-Pm4" kind="relationship" relationship="rootViewController" id="4L5-8F-BhL"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="DPr-E9-rA3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="X5M-4j-35m" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="169.56521739130437" y="147.99107142857142"/>
+            <point key="canvasLocation" x="1079.7101449275362" y="147.99107142857142"/>
         </scene>
     </scenes>
 </document>
