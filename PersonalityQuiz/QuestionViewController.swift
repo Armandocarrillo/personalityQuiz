@@ -29,7 +29,7 @@ class QuestionViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         updateUI()
-       
+        multiSwitch4.isEnabled = false
     }
     var answerChosen : [Answer] = []
     var questionIndex = Int.init()
@@ -94,6 +94,13 @@ class QuestionViewController: UIViewController {
             updateUI()
         } else {
             performSegue(withIdentifier: "ResultsSegue", sender: nil)
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "ResultsSegue"{
+            let resultsViewController = segue.destination as! ResultsViewController
+            resultsViewController.responses = answerChosen
         }
     }
     

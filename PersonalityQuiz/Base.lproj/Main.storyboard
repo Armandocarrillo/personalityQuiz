@@ -82,7 +82,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-558" y="148"/>
+            <point key="canvasLocation" x="245" y="148"/>
         </scene>
         <!--Question View Controller-->
         <scene sceneID="PqV-Uf-f4a">
@@ -110,7 +110,7 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NX9-Wq-Tv9">
+                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="NX9-Wq-Tv9">
                                                 <rect key="frame" x="289" y="0.0" width="51" height="31"/>
                                             </switch>
                                         </subviews>
@@ -124,7 +124,7 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lNO-zY-aaR">
+                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="lNO-zY-aaR">
                                                 <rect key="frame" x="289" y="0.0" width="51" height="31"/>
                                             </switch>
                                         </subviews>
@@ -138,7 +138,7 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ozK-C0-rv0">
+                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="ozK-C0-rv0">
                                                 <rect key="frame" x="289" y="0.0" width="51" height="31"/>
                                             </switch>
                                         </subviews>
@@ -243,10 +243,19 @@
                         <viewLayoutGuide key="safeArea" id="Srr-Hw-Q1V"/>
                     </view>
                     <navigationItem key="navigationItem" title="Results" id="Ogt-Z8-Fco">
-                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="oFJ-Om-54i"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="oFJ-Om-54i">
+                            <connections>
+                                <segue destination="LaZ-xC-2PZ" kind="unwind" unwindAction="unwindToQuizIntroductionWithSegue:" id="5n6-Xn-eUV"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="resultAnsweLabel" destination="Xd0-eA-lw1" id="gmr-0J-VHh"/>
+                        <outlet property="resultDescriptionLabel" destination="l0Y-jq-f1Q" id="2o2-PT-nd5"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Loz-Nu-Zb8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="LaZ-xC-2PZ" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2760.8695652173915" y="143.97321428571428"/>
         </scene>
